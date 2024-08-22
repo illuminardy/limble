@@ -23,7 +23,7 @@ export function getLocationCostsQuery(status, workerIds, locationIds) {
   }
 
   if (locationIds && locationIds.length > 0) {
-    query += includesWorkerIds ? ` AND` : ` WHERE`;
+    query += isValidStatus || includesWorkerIds ? ` AND` : ` WHERE`;
     query += ` locations.id IN (${locationIds.map((val) => `${val}`).join(',')})`;
   }
 
