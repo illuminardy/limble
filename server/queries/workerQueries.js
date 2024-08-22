@@ -4,6 +4,7 @@ export function getWorkerCostsQuery(status, workerIds, locationIds) {
       FROM workers
       LEFT JOIN logged_time ON workers.id = logged_time.worker_id
       LEFT JOIN tasks ON logged_time.task_id = tasks.id
+      LEFT JOIN locations ON tasks.location_id = locations.id
   `;
 
   let isValidStatus;
